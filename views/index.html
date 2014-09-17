@@ -1,0 +1,37 @@
+<html>
+<head>
+<title> 文件上传与下载 </title>
+</head>
+<body>
+<h1>文件上传</h1>
+<p>
+<a href="/upload">上传文件</a> 
+<a href='/download'>下载文件</a>
+</p>
+<h1>列表</h1>
+<table>
+<thead>
+<td>编号</td>
+<td>IP</td>
+<td>姓名</td>
+<td>文件名</td>
+<td>得分</td>
+<td></td>
+</thead>
+<tbody>
+
+{{range $k,$v := . }}
+<tr>
+<td>{{$k}}</td>
+<td><a href="/get?ip={{.Ip}}"> {{.Ip}} </a></td>
+<td>{{.UserName}}</td>
+<td>{{.FileName}}</td>
+<td>{{.Score}}</td>
+<td><a href="/delete?ip={{.Ip}}"> 删除 </a></td>
+</tr>
+{{end}}
+
+</tbody>
+</table>
+</body>
+</html>
